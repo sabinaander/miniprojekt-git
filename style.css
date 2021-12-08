@@ -31,7 +31,7 @@ ul, li {
         "f f f f f f f f f f"
 }
 
-.calender {
+.calendar {
     grid-area: m;
     background-color: darkgray;
     display: none;
@@ -86,14 +86,14 @@ footer {
             "f f f f f f f f f f";
     }
 
-    .calender {
+    .calendar {
         grid-area: m;
         background-color: darkgray;
         display: block;
     }
 
-    .calender ul,
-    .calender ol {
+    .calendar ul,
+    .calendar ol {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         gap: 1em;
