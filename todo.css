@@ -1,0 +1,6 @@
+#todocontainer{
+    width: 40vw;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
