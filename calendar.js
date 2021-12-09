@@ -25,16 +25,26 @@ function calenderlist() {
   calendar.selectedYear = parseInt(
     document.querySelector("#calendar-year").value
   )
-  const daysInMonth = daysInMonth(calendar.selectedMonth, calendar.selectedYear)
+  const daysInMonth = new Date(
+    calendar.selectedYear,
+    calendar.selectedMonth + 1,
+    0
+  ).getDate()
+
+  const startDay = new Date(
+    calendar.selectedYear,
+    calendar.selectedMonth,
+    1
+  ).getDay()
+
+  const endDay = new Date(
+    calendar.selectedYear,
+    calendar.selectedMonth,
+    daysInMonth
+  ).getDay()
+
+  console.log({ daysInMonth, startDay, endDay })
 }
-
-function daysInMonth(month, year) {
-  return new Date(year, month, 0).getDate()
-}
-
-console.log(daysInMonth(12, 2021))
-
-console.log({ calendar })
 
 /**Renders the options for month & year */
 function renderDateSelectors() {
