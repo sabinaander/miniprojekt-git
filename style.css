@@ -1,5 +1,6 @@
-@import url(/todo.css);
 
+@import url(./calendar.css);
+@import url(/todo.css);
 
 /* Base */
 * {
