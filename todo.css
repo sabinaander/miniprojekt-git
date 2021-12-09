@@ -1,6 +1,23 @@
-#todocontainer{
-    width: 40vw;
-    background-color: black;
+.toDoContainer{
+    background-color: #00000036;
     display: flex;
-    flex-direction: column;
+    height: 50vh;
+    width: 50vw;
+    z-index: 1;
+    justify-content: center;
+}
+
+#toDoForm{
+    display: flex;
+    flex-direction: column; 
+    gap: 2rem;
+    width: 30vw;
+}
+
+#toDoForm input{
+    height: 30vh;
+}
+
+button{
+    padding: 1rem;
 }
