@@ -2,13 +2,9 @@ The README file for the project "Miniprojekt Git"
 For Medieinstitutet Göteborg
 Class FED21G
 
-Authors: 
+Authors:
 Sabina Andersson
 Tomas Fridekrans
 Jim Bothén
 
 The goal is to create a web application with functionality to add to-dos to a calendar/planner.
-
-hej hej
-
-BOB
