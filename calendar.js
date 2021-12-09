@@ -43,7 +43,21 @@ function calenderlist() {
     daysInMonth
   ).getDay()
 
-  console.log({ daysInMonth, startDay, endDay })
+  const dayBlocks = []
+
+  for (let i = 1; i <= daysInMonth; i++) {
+    dayBlocks.push(i)
+  }
+
+  const calContainer = document.querySelector("#calendar-container ol")
+  calContainer.innerHTML = ""
+  for (let i = 1; i <= dayBlocks.length; i++) {
+    const li = document.createElement("li")
+    li.innerHTML = i
+    calContainer.append(li)
+  }
+
+  console.log({ daysInMonth, startDay, endDay, dayBlocks })
 }
 
 /**Renders the options for month & year */
