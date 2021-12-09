@@ -1,105 +1,111 @@
+@import url(./calendar.css);
+@import url(/todo.css);
+@import url(/today.css);
 /* Base */
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-ul, li {
-    list-style: none;
+ul,
+li {
+  list-style: none;
 }
 
 /*  */
 .gridContainer {
-    display: grid;
-    height: 100vh;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  /* 10x12 container */
+  grid-template-areas:
+    "h h h h h h h h h h"
+    "h h h h h h h h h h"
+    "s s s s s s s s s s"
+    "s s s s s s s s s s"
+    "s s s s s s s s s s"
+    "s s s s s s s s s s"
+    "s s s s s s s s s s"
+    "s s s s s s s s s s"
+    "s s s s s s s s s s"
+    "s s s s s s s s s s"
+    "s s s s s s s s s s"
+    "f f f f f f f f f f";
+}
+
+.calendar {
+  grid-area: m;
+  background-color: darkgray;
+  display: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid rgba(0, 0, 0, 0.103);
+  padding: 1rem;
+}
+
+.sideBar {
+  border: 1px solid black;
+  grid-area: s;
+  background-color: bisque;
+}
+
+.header {
+  border: 1px solid black;
+  grid-area: h;
+  background-color: aqua;
+}
+
+footer {
+  background-color: pink;
+  grid-area: f;
+}
+
+/* Laptop L */
+@media screen and (min-width: 1440px) {
+}
+
+/* Laptop */
+@media screen and (min-width: 1024px) {
+  .gridContainer {
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(12, 1fr);
     /* 10x12 container */
     grid-template-areas:
-        "h h h h h h h h h h"
-        "h h h h h h h h h h"
-        "s s s s s s s s s s"
-        "s s s s s s s s s s"
-        "s s s s s s s s s s"
-        "s s s s s s s s s s"
-        "s s s s s s s s s s"
-        "s s s s s s s s s s"
-        "s s s s s s s s s s"
-        "s s s s s s s s s s"
-        "s s s s s s s s s s"
-        "f f f f f f f f f f"
-}
+      "h h h h h h h h h h"
+      "h h h h h h h h h h"
+      "s s s m m m m m m m"
+      "s s s m m m m m m m"
+      "s s s m m m m m m m"
+      "s s s m m m m m m m"
+      "s s s m m m m m m m"
+      "s s s m m m m m m m"
+      "s s s m m m m m m m"
+      "s s s m m m m m m m"
+      "s s s m m m m m m m"
+      "f f f f f f f f f f";
+  }
 
-.calendar {
+  .calendar {
     grid-area: m;
     background-color: darkgray;
-    display: none;
+    display: block;
+  }
+
+  .calendar ul,
+  .calendar ol {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1em;
+  }
 }
-
-li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid rgba(0, 0, 0, 0.103);
-    padding: 1rem;
-}
-
-.sideBar {
-    border: 1px solid black;
-    grid-area: s;
-    background-color: bisque;
-}
-
-.header {
-    border: 1px solid black;
-    grid-area: h;
-    background-color: aqua;
-}
-
-footer {
-    background-color: pink;
-    grid-area: f;
-}
-
-/* Laptop L */
-@media screen and (min-width: 1440px) {}
-
-/* Laptop */
-@media screen and (min-width: 1024px) {
-    .gridContainer {
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(12, 1fr);
-        /* 10x12 container */
-        grid-template-areas:
-            "h h h h h h h h h h"
-            "h h h h h h h h h h"
-            "s s s m m m m m m m"
-            "s s s m m m m m m m"
-            "s s s m m m m m m m"
-            "s s s m m m m m m m"
-            "s s s m m m m m m m"
-            "s s s m m m m m m m"
-            "s s s m m m m m m m"
-            "s s s m m m m m m m"
-            "s s s m m m m m m m"
-            "f f f f f f f f f f";
-    }
-
-    .calendar {
-        grid-area: m;
-        background-color: darkgray;
-        display: block;
-    }
-
-    .calendar ul,
-    .calendar ol {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 1em;
-    }
-}
-
 
 /* Tablet */
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+}
