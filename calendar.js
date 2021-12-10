@@ -17,7 +17,7 @@ const calendar = {
   selectedYear: 0,
 }
 
-function calenderlist() {
+function renderCalendar() {
   calendar.selectedMonth = parseInt(
     document.querySelector("#calendar-month").value
   )
@@ -108,7 +108,7 @@ function renderDateSelectors() {
   }
 }
 
-function renderCalendar() {
+function dateSelectListener() {
   const setBtn = document.querySelector("#calendar-set")
-  setBtn.addEventListener("click", calenderlist)
+  setBtn.addEventListener("click", renderCalendar)
 }

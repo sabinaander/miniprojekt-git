@@ -8,5 +8,5 @@ const toDos = [{
 function main() {
   renderDateSelectors()
   renderCalendar()
-  calenderlist()
+  dateSelectListener()
 }
