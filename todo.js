@@ -14,7 +14,7 @@ toDoBtn.innerHTML = 'ADD TO-DO'
 sideBar.appendChild(toDoBtn)
 
 // create div container for todos/todo/edit todo
-toDoBtn.onclick = function () {
+toDoBtn.onclick = function (event) {
     // if (!toDoContainer){
     let toDoContainer = document.createElement('DIV')
     toDoContainer.classList.add('toDoContainer')
@@ -30,21 +30,32 @@ toDoBtn.onclick = function () {
         let toDoForm = document.createElement('FORM')
         toDoForm.setAttribute('id', 'toDoForm')
         toDoContainer.appendChild(toDoForm)
+        toDoForm.addEventListener('submit', (event) =>{
+        event.preventDefault()
+        
+        const formData = new FormData()
+        const toDo = Object.fromEntries(formData)
+        toDos.push(toDo)
+        console.log(toDo)
+            
+    })
 
         // let closeContainerBtn = document.createElement('BUTTON')
         // submitToDoBtn.innerHTML = 'CLOSE'
         // document.getElementById('toDoForm').appendChild(closeContainerBtn)
 
         let toDoInput = document.createElement('INPUT')
-        toDoInput.setAttribute('type','text')
+        toDoInput.setAttribute('type', 'text')
+        toDoInput.setAttribute('name', 'description')
         toDoForm.innerHTML = ''
         document.getElementById('toDoForm').appendChild(toDoInput)
 
         // create button and add text
         let submitToDoBtn = document.createElement('BUTTON')
+        
         submitToDoBtn.innerHTML = 'SUBMIT'
         document.getElementById('toDoForm').appendChild(submitToDoBtn)
-    //  }
+        //  }
  }
 
  
