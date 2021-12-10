@@ -1,8 +1,6 @@
 window.addEventListener("load", main)
 
-const toDos = [{
-  description: ''
-   }]
+const toDos = []
 
 // Starts the program
 function main() {
