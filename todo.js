@@ -32,10 +32,18 @@ toDoBtn.onclick = function (event) {
         // closeContainerBtn.innerHTML = 'CLOSE'
         // toDoForm.appendChild(closeContainerBtn)
 
-        let toDoInput = document.createElement('INPUT')
-        toDoInput.setAttribute('type', 'text')
-        toDoInput.setAttribute('name', 'description')
-        toDoForm.appendChild(toDoInput)
+        let titleInput = document.createElement('INPUT')
+        titleInput.classList.add('titleInput')
+        titleInput.setAttribute('type', 'text')
+        titleInput.setAttribute('name', 'title')
+        toDoForm.appendChild(titleInput)
+
+        // create div element for big input with description of the todo
+        let descriptionInput = document.createElement('INPUT')
+        descriptionInput.classList.add('descriptionInput')
+        descriptionInput.setAttribute('type', 'text')
+        descriptionInput.setAttribute('name', 'description')
+        toDoForm.appendChild(descriptionInput)
 
         // create button and add text
         let submitToDoBtn = document.createElement('BUTTON')
@@ -51,7 +59,7 @@ toDoBtn.onclick = function (event) {
             toDos.push({
                 // date: dateInput.value
                 // title: titleInput.value
-                description: toDoInput.value
+                description: descriptionInput.value
             })
         })
 }
