@@ -4,5 +4,5 @@ window.addEventListener("load", main)
 function main() {
   renderDateSelectors()
   renderCalendar()
-  calenderlist()
+  dateSelectListener()
 }
