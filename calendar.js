@@ -24,6 +24,10 @@ function renderCalendar() {
   calendar.selectedYear = parseInt(
     document.querySelector("#calendar-year").value
   )
+
+  const today = new Date().getDate()
+  const thisMonth = new Date().getMonth()
+
   const daysInMonth = new Date(
     calendar.selectedYear,
     calendar.selectedMonth + 1,
@@ -70,9 +74,13 @@ function renderCalendar() {
     const li = document.createElement("li")
     if (dayBlocks[i] === "b") {
       li.innerHTML = ""
+    } else if (dayBlocks[i] === today && calendar.selectedMonth === thisMonth) {
+      li.innerHTML = dayBlocks[i]
+      li.style = "background-color: tomato;"
     } else {
       li.innerHTML = dayBlocks[i]
     }
+
     calContainer.append(li)
   }
 
