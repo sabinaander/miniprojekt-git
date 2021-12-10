@@ -13,7 +13,6 @@ const calendar = {
     "Nov",
     "Dec",
   ],
-  days: [],
   selectedMonth: 0,
   selectedYear: 0,
 }
@@ -45,15 +44,35 @@ function calenderlist() {
 
   const dayBlocks = []
 
+  if (startDay != 1) {
+    let blankDayBlocks = startDay == 0 ? 7 : startDay
+    console.log(blankDayBlocks)
+    for (let i = 1; i < blankDayBlocks; i++) {
+      dayBlocks.push("b")
+    }
+  }
+
   for (let i = 1; i <= daysInMonth; i++) {
     dayBlocks.push(i)
   }
 
+  if (endDay != 0) {
+    let blankDayBlocks = endDay == 6 ? 1 : 7 - endDay
+    for (let i = 1; i < blankDayBlocks; i++) {
+      dayBlocks.push("b")
+    }
+  }
+
   const calContainer = document.querySelector("#calendar-container ol")
   calContainer.innerHTML = ""
-  for (let i = 1; i <= dayBlocks.length; i++) {
+  let total = dayBlocks.length
+  for (let i = 0; i < total; i++) {
     const li = document.createElement("li")
-    li.innerHTML = i
+    if (dayBlocks[i] === "b") {
+      li.innerHTML = ""
+    } else {
+      li.innerHTML = dayBlocks[i]
+    }
     calContainer.append(li)
   }
 
