@@ -46,6 +46,13 @@ toDoBtn.onclick = function (event) {
         descriptionInput.setAttribute('name', 'description')
         toDoForm.appendChild(descriptionInput)
 
+        
+        let dateInput = document.createElement('INPUT')
+        dateInput.classList.add('dateInput')
+        dateInput.setAttribute('type', 'date')
+        dateInput.setAttribute('name', 'date')
+        toDoForm.appendChild(dateInput)
+
         // create button and add text
         let submitToDoBtn = document.createElement('BUTTON')
 
