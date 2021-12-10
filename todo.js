@@ -4,18 +4,19 @@
 // View the to-do's in calendar
 
 // getting the sideBar
-let sideBar = document.querySelector('.sideBar')
+let sideBar = document.querySelector(".sideBar")
 
 // create button and add text
-let toDoBtn = document.createElement('BUTTON')
-toDoBtn.innerHTML = 'ADD TO-DO'
+let toDoBtn = document.createElement("BUTTON")
+toDoBtn.innerHTML = "ADD TO-DO"
 
 // appending toDoBtn to divs
 sideBar.appendChild(toDoBtn)
 
 // create div container for todos/todo/edit todo
 toDoBtn.onclick = function (event) {
-    // if (!toDoContainer){
+    
+  // if (!toDoContainer){
     let toDoContainer = document.createElement('DIV')
     toDoContainer.classList.add('toDoContainer')
     // toDoContainer.innerHTML = 'ADD TO-DO'
@@ -53,17 +54,14 @@ toDoBtn.onclick = function (event) {
 
         toDoForm.addEventListener('submit', (event) => {
             event.preventDefault()
-            
-            const formData = new FormData()
-            const toDo = Object.fromEntries(formData)
-            toDos.push({
-                // date: dateInput.value
-                // title: titleInput.value
-                description: descriptionInput.value
-            })
-        })
-}
 
+    const formData = new FormData(event.target)
+    const toDo = Object.fromEntries(formData)
+    toDos.push(toDo)
+
+    console.log(toDos)
+  })
+}
 
 // }
 
