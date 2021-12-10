@@ -8,6 +8,14 @@
     inset: 0;
 }
 
+.titleInput{
+    height: 4vh;
+}
+
+.descriptionInput{
+    height: 20vh;
+}
+
 #toDoForm{
     display: flex;
     flex-direction: column; 
@@ -15,9 +23,7 @@
     width: 30vw;
 }
 
-#toDoForm input{
-    height: 30vh;
-}
+
 
 button{
     padding: 1rem;
