@@ -20,62 +20,45 @@ toDoBtn.onclick = function (event) {
     toDoContainer.classList.add('toDoContainer')
     // toDoContainer.innerHTML = 'ADD TO-DO'
     document.body.appendChild(toDoContainer)
-    console.log (toDoContainer)
+    console.log(toDoContainer)
 
-    // toDoForm = function () {
+    let toDoForm = document.createElement('FORM')
+    toDoForm.setAttribute('id', 'toDoForm')
+    toDoContainer.appendChild(toDoForm)
+
 
         // create CLOSE button and add text
-        
-
-        let toDoForm = document.createElement('FORM')
-        toDoForm.setAttribute('id', 'toDoForm')
-        toDoContainer.appendChild(toDoForm)
-        toDoForm.addEventListener('submit', (event) =>{
-        event.preventDefault()
-        
-        const formData = new FormData()
-        const toDo = Object.fromEntries(formData)
-        toDos.push(toDo)
-        console.log(toDo)
-            
-    })
-
         // let closeContainerBtn = document.createElement('BUTTON')
-        // submitToDoBtn.innerHTML = 'CLOSE'
-        // document.getElementById('toDoForm').appendChild(closeContainerBtn)
+        // closeContainerBtn.innerHTML = 'CLOSE'
+        // toDoForm.appendChild(closeContainerBtn)
 
         let toDoInput = document.createElement('INPUT')
         toDoInput.setAttribute('type', 'text')
         toDoInput.setAttribute('name', 'description')
-        toDoForm.innerHTML = ''
-        document.getElementById('toDoForm').appendChild(toDoInput)
+        toDoForm.appendChild(toDoInput)
 
         // create button and add text
         let submitToDoBtn = document.createElement('BUTTON')
-        
+
         submitToDoBtn.innerHTML = 'SUBMIT'
-        document.getElementById('toDoForm').appendChild(submitToDoBtn)
-        //  }
- }
+        toDoForm.appendChild(submitToDoBtn)
 
- 
+        toDoForm.addEventListener('submit', (event) => {
+            event.preventDefault()
+            
+            const formData = new FormData()
+            const toDo = Object.fromEntries(formData)
+            toDos.push({
+                // date: dateInput.value
+                // title: titleInput.value
+                description: toDoInput.value
+            })
+        })
+}
 
 
-    
-//     toDoContainer = document.createElement('')
-    
 // }
 
-
-// Stuff that comes from teacher..
-
-// create a todo
-//  const toDo = [{
-//     title: '',
-//     text: '',
-//     date: '',
-//  }]
-
- // Display all todos for a date
+//  Display all todos for a date
 
 //  const dailyToDo = toDo.filter({toDo} == toDo.date === 'date')
