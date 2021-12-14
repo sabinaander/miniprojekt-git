@@ -26,11 +26,15 @@ toDoBtn.onclick = function (event) {
     let toDoForm = document.createElement('FORM')
     toDoForm.setAttribute('id', 'toDoForm')
     toDoContainer.appendChild(toDoForm)
+    
 
     // create CLOSE button and add text
-    // let closeContainerBtn = document.createElement('BUTTON')
-    // closeContainerBtn.innerHTML = 'CLOSE'
-    // toDoForm.appendChild(closeContainerBtn)
+    let closeContainerBtn = document.createElement('BUTTON')
+    closeContainerBtn.innerHTML = 'CLOSE'
+    toDoForm.appendChild(closeContainerBtn)
+    closeContainerBtn.onclick = function (event) {
+        toDoContainer.remove()
+    }
 
     let titleInput = document.createElement('INPUT')
     titleInput.classList.add('titleInput')
@@ -62,15 +66,23 @@ toDoBtn.onclick = function (event) {
 
         const formData = new FormData(event.target)
         const toDo = Object.fromEntries(formData)
+        // push form data to array (toDo)
         toDos.push(toDo)
+        // store form data in local storage
+        localStorage.setItem('toDos', JSON.stringify(toDos))
         toDoForm.reset() //empties the form after submit
         renderCalendar()
-        console.log(toDos)
     })
+
+    // submitToDoBtn.onclick = function (event) {
+    //     toDoContainer.remove()
+    // }
+
+    console.log(toDos)
 
 }
 
-// }
+
 
 //  Display all todos for a date
 
