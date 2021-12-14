@@ -50,7 +50,6 @@ function renderCalendar() {
 
   if (startDay != 1) {
     let blankDayBlocks = startDay == 0 ? 7 : startDay
-    console.log(blankDayBlocks)
     for (let i = 1; i < blankDayBlocks; i++) {
       dayBlocks.push("b")
     }
@@ -72,16 +71,23 @@ function renderCalendar() {
   let total = dayBlocks.length
   for (let i = 0; i < total; i++) {
     const li = document.createElement("li")
-    if (dayBlocks[i] === "b") {
-      li.innerHTML = ""
-    } else if (dayBlocks[i] === today && calendar.selectedMonth === thisMonth) {
+    const span = document.createElement("span")
+    if (dayBlocks[i] !== "b") {
+      if (dayBlocks[i] === today && calendar.selectedMonth === thisMonth) {
+        li.style = "background-color: tomato;"
+      }
+      const dayString = `${calendar.selectedYear}-${
+        calendar.selectedMonth + 1
+      }-${dayBlocks[i] < 10 ? "0" + dayBlocks[i] : dayBlocks[i]}`
+      const todosForDay = toDos.filter((todo) => todo.date === dayString)
+      console.log(dayString, todosForDay.length)
       li.innerHTML = dayBlocks[i]
-      li.style = "background-color: tomato;"
-    } else {
-      li.innerHTML = dayBlocks[i]
+      span.innerHTML = todosForDay.length > 0 ? todosForDay.length : null
+      span.style.background = "blue"
+      span.style.color = "white"
     }
-
     calContainer.append(li)
+    li.append(span)
   }
 
   console.log({ daysInMonth, startDay, endDay, dayBlocks })
