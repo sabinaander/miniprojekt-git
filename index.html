@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/CSS/style.css"/>
-    <link rel="stylesheet" href="/CSS/today.css"/>
-    <link rel="stylesheet" href="/CSS/calendar.css"/>
-    <link rel="stylesheet" href="/CSS/todo.css"/>
-    <link rel="stylesheet" href="/CSS/sidebar.css"/>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="/CSS/today.css" />
+    <link rel="stylesheet" href="/CSS/calendar.css" />
+    <link rel="stylesheet" href="/CSS/todo.css" />
+    <link rel="stylesheet" href="/CSS/sidebar.css" />
     <script defer src="/JS/main.js"></script>
     <script defer src="/JS/today.js"></script>
     <script defer src="/JS/todo.js"></script>
@@ -20,6 +20,7 @@
   <body>
     <div class="gridContainer">
       <header class="header">
+        <div id="clock">08:21:05</div>
         <p>This is a header</p>
       </header>
       <div class="sideBar">
@@ -32,7 +33,7 @@
         <div id="calendar-date">
           <select name="calendar-month" id="calendar-month"></select>
           <select name="calendar-year" id="calendar-year"></select>
-          <input type='button' id="calendar-set" value="SET" />
+          <input type="button" id="calendar-set" value="SET" />
         </div>
 
         <div id="calendar-container">
@@ -45,9 +46,7 @@
             <li>Saturday</li>
             <li>Sunday</li>
           </ul>
-          <ol>
-            
-          </ol>
+          <ol></ol>
         </div>
       </div>
       <footer>This is a footer</footer>
