@@ -16,4 +16,5 @@ function main() {
   renderCalendar()
   dateSelectListener()
   getHolidays()
+  renderSideBarContainer()
 }
