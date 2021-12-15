@@ -26,10 +26,12 @@ toDoBtn.onclick = function (event) {
     closeContainerBtn.onclick = function (event) {
         toDoContainer.remove()
     }
-
+ 
+    // form title input
     let titleInput = document.createElement('INPUT')
     titleInput.classList.add('titleInput')
     titleInput.setAttribute('type', 'text')
+    titleInput.setAttribute('required', 'required')
     titleInput.setAttribute('name', 'title')
     toDoForm.appendChild(titleInput)
 
@@ -37,12 +39,15 @@ toDoBtn.onclick = function (event) {
     let descriptionInput = document.createElement('INPUT')
     descriptionInput.classList.add('descriptionInput')
     descriptionInput.setAttribute('type', 'text')
+    descriptionInput.setAttribute('required', 'required')
     descriptionInput.setAttribute('name', 'description')
     toDoForm.appendChild(descriptionInput)
 
+    // form date input
     let dateInput = document.createElement('INPUT')
     dateInput.classList.add('dateInput')
     dateInput.setAttribute('type', 'date')
+    dateInput.setAttribute('required', 'required')
     dateInput.setAttribute('name', 'date')
     toDoForm.appendChild(dateInput)
 
@@ -61,8 +66,10 @@ toDoBtn.onclick = function (event) {
         toDos.push(toDo)
         // store form data in local storage
         localStorage.setItem('toDos', JSON.stringify(toDos))
-        toDoForm.reset() //empties the form after submit
         renderCalendar()
+        toDoContainer.remove()
+        
+
     })
 
     console.log(toDos)
