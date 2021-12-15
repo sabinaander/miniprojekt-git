@@ -3,15 +3,6 @@
 // Edit to-do
 // View the to-do's in calendar
 
-// getting the sideBar
-let sideBar = document.querySelector('.sideBar')
-
-// create button and add text
-let toDoBtn = document.createElement('BUTTON')
-toDoBtn.innerHTML = 'ADD TO-DO'
-
-// appending toDoBtn to divs
-sideBar.appendChild(toDoBtn)
 
 // create div container for todos/todo/edit todo
 toDoBtn.onclick = function (event) {
@@ -73,10 +64,6 @@ toDoBtn.onclick = function (event) {
         toDoForm.reset() //empties the form after submit
         renderCalendar()
     })
-
-    // submitToDoBtn.onclick = function (event) {
-    //     toDoContainer.remove()
-    // }
 
     console.log(toDos)
 
