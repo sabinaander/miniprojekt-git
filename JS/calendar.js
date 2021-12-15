@@ -14,6 +14,15 @@ const calendar = {
     'Nov',
     'Dec',
   ],
+  weekdays: [
+    'måndag',
+    'tisdag',
+    'onsdag',
+    'torsdag',
+    'fredag',
+    'lördag',
+    'söndag',
+  ],
   selectedMonth: 0,
   selectedYear: 0,
   holidays: [],
@@ -29,80 +38,66 @@ function renderCalendar() {
     document.querySelector('#calendar-year').value
   )
 
-  const today = new Date().getDate()
-  const thisMonth = new Date().getMonth()
-  const thisYear = new Date().getFullYear()
-
-  const daysInMonth = new Date(
-    calendar.selectedYear,
-    calendar.selectedMonth,
-    0
-  ).getDate()
-
-  const startDay = new Date(
-    calendar.selectedYear,
-    calendar.selectedMonth - 1,
-    1
-  ).getDay()
-
-  const endDay = new Date(
-    calendar.selectedYear,
-    calendar.selectedMonth,
-    daysInMonth
-  ).getDay()
-
-  const dayBlocks = []
-
-  if (startDay != 1) {
-    let blankDayBlocks = startDay == 0 ? 7 : startDay
-    for (let i = 1; i < blankDayBlocks; i++) {
-      dayBlocks.push('b')
-    }
-  }
-
-  for (let i = 1; i <= daysInMonth; i++) {
-    dayBlocks.push(i)
-  }
-
-  if (endDay != 0) {
-    let blankDayBlocks = endDay == 6 ? 1 : 7 - endDay
-    for (let i = 1; i < blankDayBlocks; i++) {
-      dayBlocks.push('b')
-    }
-  }
-
   const calContainer = document.querySelector('#calendar-container ol')
   calContainer.innerHTML = ''
-  let total = dayBlocks.length
 
-  for (let i = 0; i < total; i++) {
+  const date = new Date()
+
+  date.setMonth(calendar.selectedMonth - 1)
+  date.setFullYear(calendar.selectedYear)
+
+  const day = date.getDate()
+  const thisMonth = date.getMonth()
+  const thisYear = date.getFullYear()
+
+  const firstDayOfMonth = new Date(thisYear, thisMonth, 1)
+
+  const daysInMonth = new Date(thisYear, thisMonth + 1, 0).getDate()
+
+  const dateString = firstDayOfMonth.toLocaleDateString('sv-se', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  })
+
+  const fillDays = calendar.weekdays.indexOf(dateString.split(', ')[0])
+
+  document.getElementById(
+    'monthAndYear'
+  ).innerText = `${date.toLocaleDateString('sv-se', {
+    month: 'long',
+  })} ${thisYear}`
+
+  // const dayBlocks = []
+
+  for (let i = 1; i <= fillDays + daysInMonth; i++) {
     const li = document.createElement('li')
     const span = document.createElement('span')
+    // lägg till style class för dag
 
-    // highlights todays date in calendar
-    if (dayBlocks[i] !== 'b') {
-      if (
-        dayBlocks[i] === today &&
-        calendar.selectedMonth === thisMonth &&
-        calendar.selectedYear === thisYear
-      ) {
-        li.style = 'background-color: tomato;'
-      }
-
-      const dayString = `${calendar.selectedYear}-${calendar.selectedMonth}-${
-        dayBlocks[i] < 10 ? '0' + dayBlocks[i] : dayBlocks[i]
+    if (i > fillDays) {
+      let dayString = `${calendar.selectedYear}-${calendar.selectedMonth}-${
+        i - fillDays < 10 ? '0' + (i - fillDays) : i - fillDays
       }`
-
-      if (calendar.holidays.some((day) => day.datum === dayString)) {
-        li.style.backgroundColor = 'red'
-      }
+      li.innerText = i - fillDays
+      li.addEventListener('click', () => console.log('clicked'))
 
       const todosForDay = toDos.filter((todo) => todo.date === dayString)
-      li.innerHTML = dayBlocks[i]
       span.innerHTML = todosForDay.length > 0 ? todosForDay.length : null
       span.style.background = 'blue'
       span.style.color = 'white'
+
+      if (calendar.holidays.some((day) => day.datum === dayString)) {
+        li.style.backgroundColor = 'red' //ändra till lägga till classlist istället
+        // calendar.holidays.forEach(function (element) {
+        //   li.innerText += element.helgdag
+        // })
+      }
+    } else {
+      // lägg till style class för tom dag
     }
+
     calContainer.append(li)
     li.append(span)
   }
@@ -114,9 +109,9 @@ function renderDateSelectors() {
   const dateMonth = date.getMonth()
   const dateYear = parseInt(date.getFullYear())
 
-  calendar.selectedMonth = dateMonth.toString().padStart(2,'0')
+  calendar.selectedMonth = dateMonth.toString().padStart(2, '0')
   calendar.selectedYear = dateYear.toString()
-  calendar.selectedDay = date.getDay().toString().padStart(2,'0')
+  calendar.selectedDay = date.getDay().toString().padStart(2, '0')
 
   const monthSel = document.querySelector('#calendar-month')
 
