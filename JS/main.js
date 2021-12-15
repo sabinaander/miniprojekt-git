@@ -3,11 +3,10 @@ window.addEventListener('load', main)
 /**
  * @type {Array<{ title: String, description: String, date: String }>} asdas
  */
-let toDos = [
-]
+let toDos = []
 
-function getToDosFromStorage(){
-  toDos = JSON.parse(localStorage.getItem('toDos'))||[]
+function getToDosFromStorage() {
+  toDos = JSON.parse(localStorage.getItem('toDos')) || []
 }
 
 // Starts the program
