@@ -114,6 +114,10 @@ function renderDateSelectors() {
   const dateMonth = date.getMonth()
   const dateYear = parseInt(date.getFullYear())
 
+  calendar.selectedMonth = dateMonth.toString().padStart(2,'0')
+  calendar.selectedYear = dateYear.toString()
+  calendar.selectedDay = date.getDay().toString().padStart(2,'0')
+
   const monthSel = document.querySelector('#calendar-month')
 
   for (let i = 1; i <= 12; i++) {
