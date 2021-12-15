@@ -142,8 +142,16 @@ function renderDateSelectors() {
 // Render the selected month & year calendar after user clicks set button
 function dateSelectListener() {
   const setBtn = document.querySelector('#calendar-set')
-  setBtn.addEventListener('click', () => {
-    getHolidays()
-    renderCalendar()
+  setBtn.addEventListener('click', async () => {
+    const monthValue = document.querySelector('#calendar-month').value
+
+    calendar.selectedMonth =
+      monthValue < 10 ? monthValue.padStart(2, 0) : parseInt(monthValue, 10)
+
+    calendar.selectedYear = parseInt(
+      document.querySelector('#calendar-year').value
+    )
+    await getHolidays()
+    renderCalendar(calendar.selectedMonth, calendar.selectedYear)
   })
 }
