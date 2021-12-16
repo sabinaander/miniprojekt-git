@@ -49,6 +49,7 @@ function renderToDos() {
          const penButton = document.createElement('BUTTON')
          penButton.classList.add('fa-solid', 'fa-pen')
 
+        // onclick event for penbutton, run openTodo()
          penButton.addEventListener('click', openTodo)
 
          todoListItem.appendChild(todoTitle)
@@ -57,7 +58,8 @@ function renderToDos() {
     }
 }
 
+// when clicking, open up selected todo and either edit, or remove it. 
 function openTodo(event){
-console.log('heeellooo')
+
 }
 
