@@ -66,7 +66,7 @@ toDoBtn.onclick = function (event) {
         toDos.push(toDo)
         // store form data in local storage
         localStorage.setItem('toDos', JSON.stringify(toDos))
-        renderToDo()
+        renderToDos()
         renderCalendar()
         toDoContainer.remove()
         
