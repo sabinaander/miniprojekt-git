@@ -13,24 +13,26 @@ function renderSideBarContainer() {
     let toDosForDayContainer = document.createElement('DIV')
     toDosForDayContainer.id = 'toDosForDayContainer'
     sideBar.appendChild(toDosForDayContainer)
+
+    // create UL to store all LI's with todo's
     let listOfToDos = document.createElement('UL')
     listOfToDos.id ='listOfTodos'
     toDosForDayContainer.appendChild(listOfToDos) 
-    renderToDo()
+    renderToDos()
 }
 
-function renderToDo() {
-    let toDosForDayContainer = document.getElementById('toDosForDayContainer')
+function renderToDos() {
 
+    let toDosForDayContainer = document.getElementById('toDosForDayContainer')
     let listOfToDos = document.getElementById('listOfTodos')
     listOfToDos.innerHTML=''
     
-    
+    // get the selected/current date
     const dayString = `${calendar.selectedYear}-${calendar.selectedMonth}-${calendar.selectedDay}`
 
     const todosForDay = toDos.filter((todo) => todo.date === dayString)
 
-    
+    // loop though all todo's for selected day, create li with all info from array for each todo
     for (let todo of todosForDay) {
         let displayToDo = document.createElement('LI')
         console.log(todo)
@@ -41,3 +43,4 @@ function renderToDo() {
 
     }
 }
+
