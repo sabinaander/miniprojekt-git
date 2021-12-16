@@ -111,7 +111,7 @@ function renderDateSelectors() {
 
   calendar.selectedMonth = dateMonth.toString().padStart(2, '0')
   calendar.selectedYear = dateYear.toString()
-  calendar.selectedDay = date.getDay().toString().padStart(2, '0')
+  calendar.selectedDay = date.getDate().toString().padStart(2, '0')
 
   const monthSel = document.querySelector('#calendar-month')
 
