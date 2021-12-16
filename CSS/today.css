@@ -1,2 +1,10 @@
 /* Style for today.js by Jim */
 
+.header {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    
+}

@@ -56,7 +56,6 @@ li {
 .header {
   border: 1px solid black;
   grid-area: h;
-  background-color: aqua;
 }
 
 footer {
