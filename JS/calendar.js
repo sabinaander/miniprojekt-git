@@ -111,7 +111,7 @@ function getDay(event) {
     content = event.target.innerText[0]
   }
   calendar.selectedDay = content.toString().padStart(2, '0')
-  renderToDo()
+  renderToDos()
 }
 
 /**Renders the options for month & year */
