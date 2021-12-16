@@ -3,3 +3,8 @@
     color: black;
     height: 100%;
 }
+
+#listOfTodos li:hover{
+    border-style: solid;
+    border-width: 0 0 1 0;
+}
