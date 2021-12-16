@@ -38,16 +38,26 @@ function renderToDos() {
         let todoListItem = document.createElement('LI')
         listOfToDos.appendChild(todoListItem)
          // create li for title of todo
-         let todoTitle = document.createElement('h2')
+         let todoTitle = document.createElement('H2')
          todoTitle.innerHTML = `${todo.title}`
 
          // create li for description of todo
-         let todoDescription = document.createElement('p')
+         let todoDescription = document.createElement('P')
          todoDescription.innerHTML = `${todo.description}`
  
-         todoListItem.appendChild(todoTitle)
-         todoListItem.appendChild(todoDescription)
+         // create button element with pen icon to access selected todo
+         const penButton = document.createElement('BUTTON')
+         penButton.classList.add('fa-solid', 'fa-pen')
 
+         penButton.addEventListener('click', openTodo)
+
+         todoListItem.appendChild(todoTitle)
+         todoTitle.appendChild(penButton)
+         todoListItem.appendChild(todoDescription)
     }
+}
+
+function openTodo(event){
+console.log('heeellooo')
 }
 
