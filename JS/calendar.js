@@ -105,8 +105,12 @@ function renderCalendar() {
 
 function getDay(event) {
   let content = event.target.innerText
+  if (content.length > 3) {
+    content = event.target.innerText[0] + event.target.innerText[1]
+  } else if (content.length > 2) {
+    content = event.target.innerText[0]
+  }
   calendar.selectedDay = content.toString().padStart(2, '0')
-  console.log(calendar.selectedDay)
   renderToDo()
 }
 
