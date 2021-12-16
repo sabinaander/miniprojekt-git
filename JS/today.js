@@ -37,6 +37,9 @@ function setWelcomeMessage() {
   console.log("hour", hour);
   if (hour >= 4 && hour < 12) {
     document.getElementById("welcomeMessage").innerText = "Good morning!";
+    let createImage = document.createElement('BUTTON')
+    closeContainerBtn.innerHTML = 'CLOSE'
+    toDoForm.appendChild(closeContainerBtn)
   } else if (hour >= 12 && hour < 17) {
     document.getElementById("welcomeMessage").innerText = "Good afternoon!";
   } else {
@@ -45,3 +48,7 @@ function setWelcomeMessage() {
 }
 
 setWelcomeMessage();
+
+// Dynamic background picture
+
+function setHeaderBackground() {}
