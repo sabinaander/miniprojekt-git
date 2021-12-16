@@ -34,16 +34,19 @@ function renderToDos() {
 
     // loop though all todo's for selected day, create li with all info from array for each todo
     for (let todo of todosForDay) {
+        // create li for a todo
+        let todoListItem = document.createElement('LI')
+        listOfToDos.appendChild(todoListItem)
          // create li for title of todo
-         let todoTitle = document.createElement('LI')
+         let todoTitle = document.createElement('h2')
          todoTitle.innerHTML = `${todo.title}`
 
          // create li for description of todo
-         let todoDescription = document.createElement('LI')
+         let todoDescription = document.createElement('p')
          todoDescription.innerHTML = `${todo.description}`
  
-         listOfToDos.appendChild(todoTitle)
-         listOfToDos.appendChild(todoDescription)
+         todoListItem.appendChild(todoTitle)
+         todoListItem.appendChild(todoDescription)
 
     }
 }
