@@ -12,7 +12,6 @@ toDoBtn.onclick = function (event) {
     toDoContainer.classList.add('toDoContainer')
     // toDoContainer.innerHTML = 'ADD TO-DO'
     document.body.appendChild(toDoContainer)
-    console.log(toDoContainer)
 
     let toDoForm = document.createElement('FORM')
     toDoForm.setAttribute('id', 'toDoForm')
@@ -57,24 +56,22 @@ toDoBtn.onclick = function (event) {
     submitToDoBtn.innerHTML = 'SUBMIT'
     toDoForm.appendChild(submitToDoBtn)
 
+    // onclick save all data from form, remove todocontainer and update sidebar + calendar
     toDoForm.addEventListener('submit', (event) => {
         event.preventDefault()
 
         const formData = new FormData(event.target)
         const toDo = Object.fromEntries(formData)
+
         // push form data to array (toDo)
         toDos.push(toDo)
+
         // store form data in local storage
         localStorage.setItem('toDos', JSON.stringify(toDos))
         renderToDos()
         renderCalendar()
-        toDoContainer.remove()
-        
-
+        toDoContainer.remove()  
     })
-
-    console.log(toDos)
-
 }
 
 
