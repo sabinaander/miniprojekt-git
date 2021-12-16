@@ -1,1 +1,37 @@
 /* for calendar styles */
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid rgba(0, 0, 0, 0.103);
+  position: relative;
+  padding-block: 1rem;
+  background-color: rgb(139, 139, 139);
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+li:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: antiquewhite;
+}
+
+li span {
+  display: grid;
+  place-items: center;
+  border-radius: 100%;
+  font-size: 0.9rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1rem;
+}
+
+#calendar-container ul li {
+  border: none;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: antiquewhite;
+  font-size: 0.85rem;
+}
