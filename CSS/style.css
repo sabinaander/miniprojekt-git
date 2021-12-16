@@ -19,32 +19,24 @@ li {
   grid-template-rows: repeat(12, 1fr);
   /* 10x12 container */
   grid-template-areas:
-    "h h h h h h h h h h"
-    "h h h h h h h h h h"
-    "s s s s s s s s s s"
-    "s s s s s s s s s s"
-    "s s s s s s s s s s"
-    "s s s s s s s s s s"
-    "s s s s s s s s s s"
-    "s s s s s s s s s s"
-    "s s s s s s s s s s"
-    "s s s s s s s s s s"
-    "s s s s s s s s s s"
-    "f f f f f f f f f f";
+    'h h h h h h h h h h'
+    'h h h h h h h h h h'
+    's s s s s s s s s s'
+    's s s s s s s s s s'
+    's s s s s s s s s s'
+    's s s s s s s s s s'
+    's s s s s s s s s s'
+    's s s s s s s s s s'
+    's s s s s s s s s s'
+    's s s s s s s s s s'
+    's s s s s s s s s s'
+    'f f f f f f f f f f';
 }
 
 .calendar {
   grid-area: m;
-  background-color: darkgray;
+  background-color: rgb(133, 42, 42);
   display: none;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid rgba(0, 0, 0, 0.103);
-  padding: 1rem;
 }
 
 .sideBar {
@@ -75,24 +67,25 @@ footer {
     grid-template-rows: repeat(12, 1fr);
     /* 10x12 container */
     grid-template-areas:
-      "h h h h h h h h h h"
-      "h h h h h h h h h h"
-      "s s s m m m m m m m"
-      "s s s m m m m m m m"
-      "s s s m m m m m m m"
-      "s s s m m m m m m m"
-      "s s s m m m m m m m"
-      "s s s m m m m m m m"
-      "s s s m m m m m m m"
-      "s s s m m m m m m m"
-      "s s s m m m m m m m"
-      "f f f f f f f f f f";
+      'h h h h h h h h h h'
+      'h h h h h h h h h h'
+      's s s m m m m m m m'
+      's s s m m m m m m m'
+      's s s m m m m m m m'
+      's s s m m m m m m m'
+      's s s m m m m m m m'
+      's s s m m m m m m m'
+      's s s m m m m m m m'
+      's s s m m m m m m m'
+      's s s m m m m m m m'
+      'f f f f f f f f f f';
   }
 
   .calendar {
     grid-area: m;
-    background-color: darkgray;
+    background-color: #3b3b3b;
     display: block;
+    padding: 1em;
   }
 
   .calendar ul,

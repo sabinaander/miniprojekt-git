@@ -73,6 +73,7 @@ function renderCalendar() {
 
   for (let i = 1; i <= fillDays + daysInMonth; i++) {
     const li = document.createElement('li')
+    const pElement = document.createElement('p')
     const span = document.createElement('span')
     // lägg till style class för dag
 
@@ -99,6 +100,7 @@ function renderCalendar() {
     }
 
     calContainer.append(li)
+    li.append(pElement)
     li.append(span)
   }
 }
