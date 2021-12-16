@@ -81,7 +81,7 @@ function renderCalendar() {
         i - fillDays < 10 ? '0' + (i - fillDays) : i - fillDays
       }`
       li.innerText = i - fillDays
-      li.addEventListener('click', () => console.log('clicked'))
+      li.addEventListener('click', getDay)
 
       const todosForDay = toDos.filter((todo) => todo.date === dayString)
       span.innerHTML = todosForDay.length > 0 ? todosForDay.length : null
@@ -101,6 +101,13 @@ function renderCalendar() {
     calContainer.append(li)
     li.append(span)
   }
+}
+
+function getDay(event) {
+  let content = event.target.innerText
+  calendar.selectedDay = content.toString().padStart(2, '0')
+  console.log(calendar.selectedDay)
+  renderToDo()
 }
 
 /**Renders the options for month & year */
