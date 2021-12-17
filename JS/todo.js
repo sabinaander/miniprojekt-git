@@ -122,7 +122,7 @@ function updateTodo(form, oldTodo) {
 
 function removeTodo(oldTodo) {
     const oldTodoIndex = todos.indexOf(oldTodo)
-    // remove todo from ToDos
+    // remove todo from Todos
     todos.splice(oldTodoIndex, 1)
 
     saveTodosToLocalStorage()

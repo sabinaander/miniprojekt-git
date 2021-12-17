@@ -6,7 +6,7 @@
 
 
 
-#toDosForDayContainer{
+#todosForDayContainer{
     padding: 1rem;
     width: 90%;
     background-color: white;
@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-#toDosForDayContainer li{
+#todosForDayContainer li{
     border-bottom: 3px solid rgba(0, 0, 0, 0.315);
     padding-bottom: 1em;
     margin-bottom: 1em ;

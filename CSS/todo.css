@@ -1,4 +1,4 @@
-#toDoContainer{
+#todoContainer{
     background-color: #00000036;
     display: flex;
     z-index: 1;
@@ -16,7 +16,7 @@
     height: 20vh;
 }
 
-#toDoForm{
+#todoForm{
     display: flex;
     flex-direction: column; 
     gap: 2rem;
