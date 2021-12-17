@@ -31,6 +31,9 @@ li {
     's s s s s s s s s s'
     's s s s s s s s s s'
     'f f f f f f f f f f';
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .calendar {
@@ -40,18 +43,19 @@ li {
 }
 
 .sideBar {
-  border: 1px solid black;
   grid-area: s;
-  background-color: bisque;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .header {
-  border: 1px solid black;
   grid-area: h;
+  color: white;
+  text-align: center;
 }
 
 footer {
-  background-color: pink;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
   grid-area: f;
 }
 
@@ -82,9 +86,10 @@ footer {
 
   .calendar {
     grid-area: m;
-    background-color: #3b3b3b;
-    display: block;
+    background-color: rgba(59, 59, 59, 0.75);
+    display: grid;
     padding: 1em;
+    backdrop-filter: blur(2px);
   }
 
   .calendar ul,

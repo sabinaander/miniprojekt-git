@@ -49,7 +49,7 @@ function renderCalendar() {
   const day = date.getDate()
   const thisMonth = date.getMonth()
   const thisYear = date.getFullYear()
-
+  console.log(thisMonth, date.getMonth(), calendar.selectedMonth)
   const firstDayOfMonth = new Date(thisYear, thisMonth, 1)
 
   const daysInMonth = new Date(thisYear, thisMonth + 1, 0).getDate()
@@ -76,7 +76,11 @@ function renderCalendar() {
     const pElement = document.createElement('p')
     const span = document.createElement('span')
     // lägg till style class för dag
-
+    li.className = 'day'
+    // highlights todays date
+    if (i === day + fillDays) {
+      li.style.backgroundColor = 'green'
+    }
     if (i > fillDays) {
       let dayString = `${calendar.selectedYear}-${calendar.selectedMonth}-${
         i - fillDays < 10 ? '0' + (i - fillDays) : i - fillDays
@@ -86,8 +90,7 @@ function renderCalendar() {
 
       const todosForDay = toDos.filter((todo) => todo.date === dayString)
       span.innerHTML = todosForDay.length > 0 ? todosForDay.length : null
-      span.style.background = 'blue'
-      span.style.color = 'white'
+      span.className = 'todoBadge'
 
       if (calendar.holidays.some((day) => day.datum === dayString)) {
         li.style.backgroundColor = 'red' //ändra till lägga till classlist istället
@@ -97,6 +100,7 @@ function renderCalendar() {
       }
     } else {
       // lägg till style class för tom dag
+      li.className = 'emptyDay'
     }
 
     calContainer.append(li)
@@ -113,10 +117,11 @@ function getDay(event) {
     content = event.target.innerText[0]
   }
   calendar.selectedDay = content.toString().padStart(2, '0')
+  console.log(calendar.selectedDay)
   renderToDos()
 }
 
-/**Renders the options for month & year */
+/**Renders the options for month & year select elements */
 function renderDateSelectors() {
   const date = new Date()
   const dateMonth = date.getMonth()
@@ -151,19 +156,22 @@ function renderDateSelectors() {
   }
 }
 
-// Render the selected month & year calendar after user clicks set button
+// Render the selected month & year calendar
 function dateSelectListener() {
-  const setBtn = document.querySelector('#calendar-set')
-  setBtn.addEventListener('click', async () => {
-    const monthValue = document.querySelector('#calendar-month').value
+  const selectElements = document.querySelectorAll('#calendar-date select')
 
-    calendar.selectedMonth =
-      monthValue < 10 ? monthValue.padStart(2, 0) : parseInt(monthValue, 10)
+  selectElements.forEach((element) =>
+    element.addEventListener('change', async () => {
+      const monthValue = document.querySelector('#calendar-month').value
 
-    calendar.selectedYear = parseInt(
-      document.querySelector('#calendar-year').value
-    )
-    await getHolidays()
-    renderCalendar(calendar.selectedMonth, calendar.selectedYear)
-  })
+      calendar.selectedMonth =
+        monthValue < 10 ? monthValue.padStart(2, 0) : parseInt(monthValue, 10)
+
+      calendar.selectedYear = parseInt(
+        document.querySelector('#calendar-year').value
+      )
+      await getHolidays()
+      renderCalendar()
+    })
+  )
 }

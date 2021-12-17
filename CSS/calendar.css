@@ -1,22 +1,24 @@
 /* for calendar styles */
 
-#calendar-container li {
+.day {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-block: 1rem;
+  padding-block: 0.75rem;
   background-color: rgb(139, 139, 139);
   font-size: 1.2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#calendar-container li:hover {
+.day:hover,
+.day:focus {
   background-color: rgba(0, 0, 0, 0.5);
   color: antiquewhite;
+  cursor: pointer;
 }
 
-#calendar-container li span {
+.todoBadge {
   display: grid;
   place-items: center;
   border-radius: 100%;
@@ -25,6 +27,8 @@
   right: 0;
   top: 0;
   width: 1rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
 }
 
 #calendar-container ul li {
@@ -33,4 +37,17 @@
   background-color: rgba(0, 0, 0, 0.75);
   color: antiquewhite;
   font-size: 0.85rem;
+  padding-block: 1rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.emptyDay {
+  background: none;
+}
+
+#monthAndYear {
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
 }
