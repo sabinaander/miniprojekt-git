@@ -2,6 +2,7 @@
 
 .day {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -44,6 +45,12 @@
 
 .emptyDay {
   background: none;
+}
+
+.holiday {
+  color: red;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 #monthAndYear {
