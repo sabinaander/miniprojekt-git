@@ -1,19 +1,19 @@
 // create div container for todos/todo/edit todo
-toDoBtn.onclick = function (event) {
+todoBtn.onclick = function (event) {
     renderTodoForm()
 }
 
 function renderTodoForm(todo) {
 
-    // if (!toDoContainer){
-    let toDoContainer = document.createElement('DIV')
-    toDoContainer.id = 'toDoContainer'
-    // toDoContainer.innerHTML = 'ADD TO-DO'
+    
+    let todoContainer = document.createElement('DIV')
+    todoContainer.id = 'todoContainer'
+    
     document.body.appendChild(toDoContainer)
 
-    let toDoForm = document.createElement('FORM')
-    toDoForm.setAttribute('id', 'toDoForm')
-    toDoContainer.appendChild(toDoForm)
+    let todoForm = document.createElement('FORM')
+    todoForm.setAttribute('id', 'todoForm')
+    todoContainer.appendChild(todoForm)
 
 
     /** create CLOSE button and add text (remove element)
@@ -22,10 +22,10 @@ function renderTodoForm(todo) {
     let closeContainerBtn = document.createElement('BUTTON')
     closeContainerBtn.innerHTML = 'CLOSE'
     closeContainerBtn.type = 'button'
-    toDoForm.appendChild(closeContainerBtn)
+    todoForm.appendChild(closeContainerBtn)
 
     closeContainerBtn.onclick = function (event) {
-        toDoContainer.remove()
+        todoContainer.remove()
     }
 
     // form title input
@@ -34,7 +34,7 @@ function renderTodoForm(todo) {
     titleInput.setAttribute('type', 'text')
     titleInput.setAttribute('required', 'required')
     titleInput.setAttribute('name', 'title')
-    toDoForm.appendChild(titleInput)
+    todoForm.appendChild(titleInput)
 
     if (todo) {
         titleInput.value = todo.title
@@ -46,7 +46,7 @@ function renderTodoForm(todo) {
     descriptionInput.setAttribute('type', 'text')
     descriptionInput.setAttribute('required', 'required')
     descriptionInput.setAttribute('name', 'description')
-    toDoForm.appendChild(descriptionInput)
+    todoForm.appendChild(descriptionInput)
 
     if (todo) {
         descriptionInput.value = todo.description
@@ -58,30 +58,30 @@ function renderTodoForm(todo) {
     dateInput.setAttribute('type', 'date')
     dateInput.setAttribute('required', 'required')
     dateInput.setAttribute('name', 'date')
-    toDoForm.appendChild(dateInput)
+    todoForm.appendChild(dateInput)
 
     if (todo) {
         dateInput.value = todo.date
     }
 
     // create button and add text
-    let submitToDoBtn = document.createElement('BUTTON')
-    toDoForm.appendChild(submitToDoBtn)
+    let submitTodoBtn = document.createElement('BUTTON')
+    todoForm.appendChild(submitTodoBtn)
 
 
     // onclick edit todo
     if (todo) {
-        submitToDoBtn.innerHTML = 'UPDATE TODO'
-        toDoForm.addEventListener('submit', (event) => {
+        submitTodoBtn.innerHTML = 'UPDATE TODO'
+        todoForm.addEventListener('submit', (event) => {
             event.preventDefault()
             updateTodo(event.target, todo)
         })
 
-        let removeToDoBtn = document.createElement('BUTTON')
-        removeToDoBtn.innerHTML = 'REMOVE TODO'
-        toDoForm.appendChild(removeToDoBtn)
+        let removeTodoBtn = document.createElement('BUTTON')
+        removeTodoBtn.innerHTML = 'REMOVE TODO'
+        todoForm.appendChild(removeTodoBtn)
 
-        removeToDoBtn.addEventListener('click', (event) =>{
+        removeTodoBtn.addEventListener('click', (event) =>{
             event.preventDefault()
             removeTodo(todo)
         })
@@ -92,8 +92,8 @@ function renderTodoForm(todo) {
 
     // onclick save all data from form, remove todocontainer and update sidebar + calendar
     else {
-        submitToDoBtn.innerHTML = 'CREATE TODO'
-        toDoForm.addEventListener('submit', (event) => {
+        submitTodoBtn.innerHTML = 'CREATE TODO'
+        todoForm.addEventListener('submit', (event) => {
             event.preventDefault()
             addTodo(event.target)
         })
@@ -103,10 +103,10 @@ function renderTodoForm(todo) {
 // add a new todo to array
 function addTodo(form) {
     const formData = new FormData(form)
-    const toDo = Object.fromEntries(formData)
+    const todo = Object.fromEntries(formData)
 
     // push form data to array (toDo)
-    toDos.push(toDo)
+    todos.push(todo)
     saveTodosToLocalStorage()
 }
 
@@ -116,23 +116,23 @@ function updateTodo(form, oldTodo) {
     const newTodo = Object.fromEntries(formData)
 
     const oldTodoIndex = toDos.indexOf(oldTodo)
-    toDos.splice(oldTodoIndex, 1, newTodo)
+    todos.splice(oldTodoIndex, 1, newTodo)
     saveTodosToLocalStorage()
 }
 
 function removeTodo(oldTodo) {
     const oldTodoIndex = toDos.indexOf(oldTodo)
     // remove todo from ToDos
-    toDos.splice(oldTodoIndex, 1)
+    todos.splice(oldTodoIndex, 1)
 
     saveTodosToLocalStorage()
 }
 
 // save all todos
 function saveTodosToLocalStorage() {
-    const toDoContainer = document.getElementById('toDoContainer')
-    localStorage.setItem('toDos', JSON.stringify(toDos))
-    renderToDos()
+    const todoContainer = document.getElementById('todoContainer')
+    localStorage.setItem('todos', JSON.stringify(todos))
+    renderTodos()
     renderCalendar()
-    toDoContainer.remove()
+    todoContainer.remove()
 }

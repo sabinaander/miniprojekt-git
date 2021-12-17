@@ -3,43 +3,43 @@ let sideBar = document.querySelector('.sideBar')
 
 
 /** create button and add text
- * @type {HTMLButtonElement} toDoBtn
+ * @type {HTMLButtonElement} todoBtn
  */
-let toDoBtn = document.createElement('BUTTON')
-toDoBtn.innerHTML = 'ADD TO-DO'
-toDoBtn.type = 'button'
+let todoBtn = document.createElement('BUTTON')
+todoBtn.innerHTML = 'ADD TO-DO'
+todoBtn.type = 'button'
 
 // appending toDoBtn to divs
-sideBar.appendChild(toDoBtn)
+sideBar.appendChild(todoBtn)
 
 function renderSideBarContainer() {
-    let toDosForDayContainer = document.createElement('DIV')
-    toDosForDayContainer.id = 'toDosForDayContainer'
-    sideBar.appendChild(toDosForDayContainer)
+    let todosForDayContainer = document.createElement('DIV')
+    todosForDayContainer.id = 'todosForDayContainer'
+    sideBar.appendChild(todosForDayContainer)
 
     // create UL to store all LI's with todo's
-    let listOfToDos = document.createElement('UL')
-    listOfToDos.id = 'listOfTodos'
-    toDosForDayContainer.appendChild(listOfToDos)
-    renderToDos()
+    let listOfTodos = document.createElement('UL')
+    listOfTodos.id = 'listOfTodos'
+    todosForDayContainer.appendChild(listOfTodos)
+    renderTodos()
 }
 
-function renderToDos() {
+function renderTodos() {
 
-    let toDosForDayContainer = document.getElementById('toDosForDayContainer')
-    let listOfToDos = document.getElementById('listOfTodos')
-    listOfToDos.innerHTML = ''
+    let todosForDayContainer = document.getElementById('todosForDayContainer')
+    let listOfTodos = document.getElementById('listOfTodos')
+    listOfTodos.innerHTML = ''
 
     // get the selected/current date
     const dayString = `${calendar.selectedYear}-${calendar.selectedMonth}-${calendar.selectedDay}`
 
-    const todosForDay = toDos.filter((todo) => todo.date === dayString)
+    const todosForDay = todos.filter((todo) => todo.date === dayString)
 
     // loop though all todo's for selected day, create li with all info from array for each todo
     for (let todo of todosForDay) {
         // create li for a todo
         let todoListItem = document.createElement('LI')
-        listOfToDos.appendChild(todoListItem)
+        listOfTodos.appendChild(todoListItem)
         // create li for title of todo
         let todoTitle = document.createElement('H2')
         todoTitle.innerHTML = `${todo.title}`
@@ -63,12 +63,4 @@ function renderToDos() {
     }
 }
 
-// when clicking, open up selected todo and either edit, or remove it.
-// to access first look at selected date
-// then look at the targeted title
-// find the array with title + description + day in array
-// open up todo
-// edit todo, write over full item in array
-// sumbit => push todo
-// remove todo
 
