@@ -9,7 +9,7 @@ function renderTodoForm(todo) {
     let todoContainer = document.createElement('DIV')
     todoContainer.id = 'todoContainer'
     
-    document.body.appendChild(toDoContainer)
+    document.body.appendChild(todoContainer)
 
     let todoForm = document.createElement('FORM')
     todoForm.setAttribute('id', 'todoForm')
@@ -105,7 +105,7 @@ function addTodo(form) {
     const formData = new FormData(form)
     const todo = Object.fromEntries(formData)
 
-    // push form data to array (toDo)
+    // push form data to array (todo)
     todos.push(todo)
     saveTodosToLocalStorage()
 }
@@ -115,13 +115,13 @@ function updateTodo(form, oldTodo) {
     const formData = new FormData(form)
     const newTodo = Object.fromEntries(formData)
 
-    const oldTodoIndex = toDos.indexOf(oldTodo)
+    const oldTodoIndex = todos.indexOf(oldTodo)
     todos.splice(oldTodoIndex, 1, newTodo)
     saveTodosToLocalStorage()
 }
 
 function removeTodo(oldTodo) {
-    const oldTodoIndex = toDos.indexOf(oldTodo)
+    const oldTodoIndex = todos.indexOf(oldTodo)
     // remove todo from ToDos
     todos.splice(oldTodoIndex, 1)
 

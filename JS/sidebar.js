@@ -9,7 +9,7 @@ let todoBtn = document.createElement('BUTTON')
 todoBtn.innerHTML = 'ADD TO-DO'
 todoBtn.type = 'button'
 
-// appending toDoBtn to divs
+// appending todoBtn to divs
 sideBar.appendChild(todoBtn)
 
 function renderSideBarContainer() {
