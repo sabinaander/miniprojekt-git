@@ -49,7 +49,7 @@ function renderCalendar() {
   const day = date.getDate()
   const thisMonth = date.getMonth()
   const thisYear = date.getFullYear()
-  console.log(thisMonth, date.getMonth(), calendar.selectedMonth)
+
   const firstDayOfMonth = new Date(thisYear, thisMonth, 1)
 
   const daysInMonth = new Date(thisYear, thisMonth + 1, 0).getDate()
@@ -73,7 +73,8 @@ function renderCalendar() {
 
   for (let i = 1; i <= fillDays + daysInMonth; i++) {
     const li = document.createElement('li')
-    const pElement = document.createElement('p')
+    const pElDay = document.createElement('p')
+    const pElHoliday = document.createElement('p')
     const span = document.createElement('span')
     // lägg till style class för dag
     li.className = 'day'
@@ -85,26 +86,32 @@ function renderCalendar() {
       let dayString = `${calendar.selectedYear}-${calendar.selectedMonth}-${
         i - fillDays < 10 ? '0' + (i - fillDays) : i - fillDays
       }`
-      li.innerText = i - fillDays
+
+      pElDay.innerText = i - fillDays
+
       li.addEventListener('click', getDay)
 
       const todosForDay = toDos.filter((todo) => todo.date === dayString)
       span.innerHTML = todosForDay.length > 0 ? todosForDay.length : null
       span.className = 'todoBadge'
 
-      if (calendar.holidays.some((day) => day.datum === dayString)) {
-        li.style.backgroundColor = 'red' //ändra till lägga till classlist istället
-        // calendar.holidays.forEach(function (element) {
-        //   li.innerText += element.helgdag
-        // })
-      }
+      calendar.holidays.forEach(function (day) {
+        if (day.datum === dayString) {
+          pElHoliday.innerText = day.helgdag
+          pElHoliday.className = 'holiday'
+        }
+      })
+      // if (calendar.holidays.find((day) => day.datum === dayString)) {
+      //   pElHoliday.className = 'holiday'
+      // }
     } else {
       // lägg till style class för tom dag
       li.className = 'emptyDay'
     }
 
     calContainer.append(li)
-    li.append(pElement)
+    li.append(pElHoliday)
+    li.prepend(pElDay)
     li.append(span)
   }
 }
@@ -114,10 +121,10 @@ function getDay(event) {
   if (content.length > 3) {
     content = event.target.innerText[0] + event.target.innerText[1]
   } else if (content.length > 2) {
-    content = event.target.innerText[0]
+    content = event.target.innerText[0].padStart(2, '0')
   }
   calendar.selectedDay = content.toString().padStart(2, '0')
-  console.log(calendar.selectedDay)
+  console.log(content)
   renderToDos()
 }
 
