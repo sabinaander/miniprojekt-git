@@ -69,8 +69,6 @@ function renderCalendar() {
     month: 'long',
   })} ${thisYear}`
 
-  // const dayBlocks = []
-
   for (let i = 1; i <= fillDays + daysInMonth; i++) {
     const li = document.createElement('li')
     const pElDay = document.createElement('p')
@@ -78,6 +76,7 @@ function renderCalendar() {
     const span = document.createElement('span')
     // lägg till style class för dag
     li.className = 'day'
+
     // highlights todays date
     if (i === day + fillDays) {
       li.style.backgroundColor = 'green'
@@ -88,6 +87,7 @@ function renderCalendar() {
       }`
 
       pElDay.innerText = i - fillDays
+      pElDay.className = 'dd'
 
       li.addEventListener('click', getDay)
 
@@ -117,14 +117,9 @@ function renderCalendar() {
 }
 
 function getDay(event) {
-  let content = event.target.innerText
-  if (content.length > 3) {
-    content = event.target.innerText[0] + event.target.innerText[1]
-  } else if (content.length > 2) {
-    content = event.target.innerText[0].padStart(2, '0')
-  }
+  let content = event.target.querySelector('.dd').innerText
   calendar.selectedDay = content.toString().padStart(2, '0')
-  console.log(content)
+  console.log(calendar.selectedDay)
   renderTodos()
 }
 
