@@ -1,10 +1,13 @@
 // getting the sideBar
 let sideBar = document.querySelector('.sideBar')
 
-// create button and add text
+
+/** create button and add text
+ * @type {HTMLButtonElement} toDoBtn
+ */
 let toDoBtn = document.createElement('BUTTON')
 toDoBtn.innerHTML = 'ADD TO-DO'
-
+toDoBtn.type = 'button'
 
 // appending toDoBtn to divs
 sideBar.appendChild(toDoBtn)
@@ -16,8 +19,8 @@ function renderSideBarContainer() {
 
     // create UL to store all LI's with todo's
     let listOfToDos = document.createElement('UL')
-    listOfToDos.id ='listOfTodos'
-    toDosForDayContainer.appendChild(listOfToDos) 
+    listOfToDos.id = 'listOfTodos'
+    toDosForDayContainer.appendChild(listOfToDos)
     renderToDos()
 }
 
@@ -25,8 +28,8 @@ function renderToDos() {
 
     let toDosForDayContainer = document.getElementById('toDosForDayContainer')
     let listOfToDos = document.getElementById('listOfTodos')
-    listOfToDos.innerHTML=''
-    
+    listOfToDos.innerHTML = ''
+
     // get the selected/current date
     const dayString = `${calendar.selectedYear}-${calendar.selectedMonth}-${calendar.selectedDay}`
 
@@ -37,29 +40,35 @@ function renderToDos() {
         // create li for a todo
         let todoListItem = document.createElement('LI')
         listOfToDos.appendChild(todoListItem)
-         // create li for title of todo
-         let todoTitle = document.createElement('H2')
-         todoTitle.innerHTML = `${todo.title}`
+        // create li for title of todo
+        let todoTitle = document.createElement('H2')
+        todoTitle.innerHTML = `${todo.title}`
 
-         // create li for description of todo
-         let todoDescription = document.createElement('P')
-         todoDescription.innerHTML = `${todo.description}`
- 
-         // create button element with pen icon to access selected todo
-         const penButton = document.createElement('BUTTON')
-         penButton.classList.add('fa-solid', 'fa-pen')
+        // create li for description of todo
+        let todoDescription = document.createElement('P')
+        todoDescription.innerHTML = `${todo.description}`
 
+        // create button element with pen icon to access selected todo
+        const penButton = document.createElement('BUTTON')
+        penButton.classList.add('fa-solid', 'fa-pen')
+        penButton.title = 'click here to view, edit or remove your todo'
         // onclick event for penbutton, run openTodo()
-         penButton.addEventListener('click', openTodo)
+        penButton.addEventListener('click', function () {
+            renderTodoForm(todo)
+        })
 
-         todoListItem.appendChild(todoTitle)
-         todoTitle.appendChild(penButton)
-         todoListItem.appendChild(todoDescription)
+        todoListItem.appendChild(todoTitle)
+        todoTitle.appendChild(penButton)
+        todoListItem.appendChild(todoDescription)
     }
 }
 
-// when clicking, open up selected todo and either edit, or remove it. 
-function openTodo(event){
-
-}
+// when clicking, open up selected todo and either edit, or remove it.
+// to access first look at selected date
+// then look at the targeted title
+// find the array with title + description + day in array
+// open up todo
+// edit todo, write over full item in array
+// sumbit => push todo
+// remove todo
 
