@@ -91,7 +91,7 @@ function renderCalendar() {
 
       li.addEventListener('click', getDay)
 
-      const todosForDay = toDos.filter((todo) => todo.date === dayString)
+      const todosForDay = todos.filter((todo) => todo.date === dayString)
       span.innerHTML = todosForDay.length > 0 ? todosForDay.length : null
       span.className = 'todoBadge'
 
@@ -125,7 +125,7 @@ function getDay(event) {
   }
   calendar.selectedDay = content.toString().padStart(2, '0')
   console.log(content)
-  renderToDos()
+  renderTodos()
 }
 
 /**Renders the options for month & year select elements */

@@ -3,15 +3,15 @@ window.addEventListener('load', main)
 /**
  * @type {Array<{ title: String, description: String, date: String }>} asdas
  */
-let toDos = []
+let todos = []
 
-function getToDosFromStorage() {
-  toDos = JSON.parse(localStorage.getItem('toDos')) || []
+function getTodosFromStorage() {
+  todos = JSON.parse(localStorage.getItem('todos')) || []
 }
 
 // Starts the program
 function main() {
-  getToDosFromStorage()
+  getTodosFromStorage()
   renderDateSelectors()
   renderCalendar()
   dateSelectListener()
