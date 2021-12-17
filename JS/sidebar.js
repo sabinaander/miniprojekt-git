@@ -35,6 +35,11 @@ function renderTodos() {
 
     const todosForDay = todos.filter((todo) => todo.date === dayString)
 
+    // create h2 element to show selected date
+    let displaySelectedDate = document.createElement('SPAN')
+    listOfTodos.appendChild(displaySelectedDate)
+    listOfTodos.innerText = dayString
+
     // loop though all todo's for selected day, create li with all info from array for each todo
     for (let todo of todosForDay) {
         // create li for a todo
