@@ -3,7 +3,7 @@ async function fetchDateData(year, month) {
   let monthIn = month
   const stringDate = [yearIn, monthIn].join('/')
   // let day = 24
-  const URL = `http://sholiday.faboul.se/dagar/v2.1/${stringDate}/`
+  const URL = `https://sholiday.faboul.se/dagar/v2.1/${stringDate}/`
   try {
     const response = await fetch(URL)
     const data = await response.json()
