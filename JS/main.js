@@ -17,4 +17,5 @@ function getTodosFromStorage() {
   dateSelectListener()
   getHolidays()
   renderSideBarContainer()
+  renderFooter()
 }
