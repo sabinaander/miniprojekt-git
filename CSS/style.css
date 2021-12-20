@@ -11,12 +11,17 @@ li {
   list-style: none;
 }
 
-/*  */
 .gridContainer {
   display: grid;
   height: 100vh;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(12, 1fr);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.showDailyView .gridContainer {
   /* 10x12 container */
   grid-template-areas:
     'h h h h h h h h h h'
@@ -31,15 +36,37 @@ li {
     's s s s s s s s s s'
     's s s s s s s s s s'
     'f f f f f f f f f f';
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
+
+body.showCalendarView .gridContainer {
+  /* 10x12 container */
+  grid-template-areas:
+    'h h h h h h h h h h'
+    'h h h h h h h h h h'
+    'm m m m m m m m m m'
+    'm m m m m m m m m m'
+    'm m m m m m m m m m'
+    'm m m m m m m m m m'
+    'm m m m m m m m m m'
+    'm m m m m m m m m m'
+    'm m m m m m m m m m'
+    'm m m m m m m m m m'
+    'm m m m m m m m m m'
+    'f f f f f f f f f f';
+}
+
+body.showCalendarView .sideBar {
+  display: none;
+}
+
+body.showDailyView .calendar {
+  display: none;
+}
+
 
 .calendar {
   grid-area: m;
   background-color: rgb(133, 42, 42);
-  display: none;
 }
 
 .sideBar {
@@ -54,18 +81,37 @@ li {
 }
 
 footer {
+  grid-area: f;
+  width: 100vw;
+}
+
+#footerContainer {
   background-color: rgba(0, 0, 0, 0.25);
   color: white;
-  grid-area: f;
+  display: flex;
+  justify-content: center;
+}
+
+#footerContainer button {
+  width: 50%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#footerContainer button::before {
+  font-size: 2rem;
 }
 
 /* Laptop L */
-@media screen and (min-width: 1440px) {
-}
+@media screen and (min-width: 1440px) {}
 
 /* Laptop */
 @media screen and (min-width: 1024px) {
-  .gridContainer {
+
+  body.showCalendarView .gridContainer,
+  body.showDailyView .gridContainer {
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(12, 1fr);
     /* 10x12 container */
@@ -84,6 +130,17 @@ footer {
       'f f f f f f f f f f';
   }
 
+  body.showCalendarView .calendar,
+  body.showDailyView .calendar {
+    display: grid;
+  }
+
+  body.showCalendarView .sideBar,
+  body.showDailyView .sideBar {
+    display: flex;
+  }
+
+
   .calendar {
     grid-area: m;
     background-color: rgba(59, 59, 59, 0.75);
@@ -101,5 +158,4 @@ footer {
 }
 
 /* Tablet */
-@media screen and (min-width: 768px) {
-}
+@media screen and (min-width: 768px) {}
