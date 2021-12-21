@@ -27,10 +27,9 @@
     <div class="gridContainer">
       <header class="header" id="primaryHeader">
         <div>
-          <div id="clock">08:21:05</div>
-          <div id="currentDate">9999-99-99</div>
-          <h1 id="welcomeMessage">Placeholder</h1>
-          <p>This is a header</p>
+          <div id="clock"></div>
+          <div id="currentDate"></div>
+          <h1 id="welcomeMessage"></h1>
         </div>
       </header>
       <div class="sideBar">
@@ -38,24 +37,26 @@
       </div>
       <div class="calendar">
         <header>
-          <h2 id="monthAndYear">December 2021</h2>
+          <h2 id="monthAndYear">
+            <!--month & year injected by script-->
+          </h2>
         </header>
         <div id="calendar-date">
-          <select name="calendar-month" id="calendar-month"></select>
-          <select name="calendar-year" id="calendar-year"></select>
+          <select name="calendar-month" id="calendar-month">
+            <!--months injected by script-->
+          </select>
+          <select name="calendar-year" id="calendar-year">
+            <!--years injected by script-->
+          </select>
         </div>
 
         <div id="calendar-container">
           <ul>
-            <li>Monday</li>
-            <li>Tuesday</li>
-            <li>Wednesday</li>
-            <li>Thursday</li>
-            <li>Friday</li>
-            <li>Saturday</li>
-            <li>Sunday</li>
+            <!--weekdays injected by script-->
           </ul>
-          <ol></ol>
+          <ol>
+            <!--days injected by script-->
+          </ol>
         </div>
       </div>
       <footer id="footer">
