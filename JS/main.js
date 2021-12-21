@@ -10,11 +10,9 @@ function getTodosFromStorage() {
 }
 
 // Starts the program
- function main() {
+function main() {
   getTodosFromStorage()
-  renderDateSelectors()
-  renderCalendar()
-  dateSelectListener()
+  initCalendar()
   getHolidays()
   renderSideBarContainer()
   renderFooter()
