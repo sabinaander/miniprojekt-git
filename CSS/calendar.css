@@ -52,7 +52,7 @@
   grid-column: span 2;
   grid-row: span 2;
   text-align: center;
-  font-size: clamp(0.25rem, 4vw, 0.85rem);
+  font-size: clamp(0.25rem, 5vw, 1.5rem);
 }
 
 .holiday,

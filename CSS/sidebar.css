@@ -1,22 +1,24 @@
-.sideBar{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-
-#todosForDayContainer{
-    padding: 1rem;
-    width: 90%;
-    background-color: white;
-    color: black;
-    height: 100%;
-    text-align: center;
+#todosForDayContainer {
+  padding: 1rem;
+  width: 90%;
+  height: 100%;
+  text-align: center;
 }
 
-#todosForDayContainer li{
-    border-bottom: 3px solid rgba(0, 0, 0, 0.315);
-    padding-bottom: 1em;
-    margin-bottom: 1em ;
+#todosForDayContainer ul {
+  color: antiquewhite;
+}
+
+#todosForDayContainer li {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.315);
+  padding-bottom: 1em;
+  margin-block: 1em;
+  background-color: white;
+  color: black;
 }

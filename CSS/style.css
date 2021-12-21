@@ -144,11 +144,16 @@ footer {
   body.showCalendarView .calendar,
   body.showDailyView .calendar {
     display: grid;
+    grid-template-rows: min-content;
   }
 
   body.showCalendarView .sideBar,
   body.showDailyView .sideBar {
     display: flex;
+  }
+
+  #footerContainer {
+    display: none;
   }
 }
 
