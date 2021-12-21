@@ -125,6 +125,7 @@ function getDay(event) {
   calendar.selectedDay = content.toString().padStart(2, '0')
   console.log(calendar.selectedDay)
   renderTodos()
+  document.body.classList.replace('showCalendarView', 'showDailyView')
 }
 
 /**Renders the options for month & year select elements */
