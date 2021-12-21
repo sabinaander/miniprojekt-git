@@ -1,14 +1,17 @@
 /* for calendar styles */
 
+#calendar-date {
+  text-align: center;
+  margin-block: 0.5rem;
+}
+
 .day {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 15px;
+  grid-template-rows: repeat(3, 15px);
   align-items: center;
-  justify-content: center;
   position: relative;
-  padding-block: 0.75rem;
   background-color: rgb(139, 139, 139);
-  font-size: 1.2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -20,16 +23,14 @@
 }
 
 .todoBadge {
-  display: grid;
-  place-items: center;
+  grid-column: 3 / 4;
+  grid-row: 1 / span 2;
   border-radius: 100%;
-  font-size: 0.9rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 1rem;
+  font-size: clamp(0.25rem, 3vw, 0.85rem);
+  text-align: center;
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
+  margin-right: 4px;
 }
 
 #calendar-container ul li {
@@ -37,8 +38,8 @@
   margin-bottom: 1rem;
   background-color: rgba(0, 0, 0, 0.75);
   color: antiquewhite;
-  font-size: 0.85rem;
-  padding-block: 1rem;
+  font-size: clamp(0.25rem, 2vw, 0.85rem);
+  padding-block: 0.5em;
   text-align: center;
   font-weight: 700;
 }
@@ -47,10 +48,22 @@
   background: none;
 }
 
-.holiday {
+.dd {
+  grid-column: span 2;
+  grid-row: span 2;
+  text-align: center;
+  font-size: clamp(0.25rem, 4vw, 0.85rem);
+}
+
+.holiday,
+.day p:nth-child(2) {
   color: red;
-  font-size: 0.75rem;
+  font-size: clamp(0.25rem, 2vw, 0.65rem);
   font-weight: 700;
+  text-shadow: 1px 1px 2px black;
+  grid-column: span 3;
+  grid-row: 3 / 4;
+  text-align: center;
 }
 
 #monthAndYear {
