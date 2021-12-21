@@ -1,3 +1,10 @@
+function initCalendar() {
+  renderDateSelectors()
+  renderCalendar()
+  renderWeekdays()
+  dateSelectListener()
+}
+
 // State of calendar
 const calendar = {
   month: [
@@ -5,7 +12,7 @@ const calendar = {
     'Feb',
     'Mar',
     'Apr',
-    'May',
+    'Maj',
     'Jun',
     'Jul',
     'Aug',
@@ -23,6 +30,7 @@ const calendar = {
     'lördag',
     'söndag',
   ],
+  selectedDay: '',
   selectedMonth: 0,
   selectedYear: 0,
   holidays: [],
@@ -63,6 +71,7 @@ function renderCalendar() {
 
   const fillDays = calendar.weekdays.indexOf(dateString.split(', ')[0])
 
+  // Update head of calendar to match selected month and year
   document.getElementById(
     'monthAndYear'
   ).innerText = `${date.toLocaleDateString('sv-se', {
@@ -70,17 +79,14 @@ function renderCalendar() {
   })} ${thisYear}`
 
   for (let i = 1; i <= fillDays + daysInMonth; i++) {
+    // create elements
     const li = document.createElement('li')
     const pElDay = document.createElement('p')
     const pElHoliday = document.createElement('p')
     const span = document.createElement('span')
-    // lägg till style class för dag
-    li.className = 'day'
 
-    // highlights todays date
-    if (i === day + fillDays) {
-      li.style.backgroundColor = 'green'
-    }
+    li.className = 'day' // style for calendar days
+
     if (i > fillDays) {
       let dayString = `${calendar.selectedYear}-${calendar.selectedMonth}-${
         i - fillDays < 10 ? '0' + (i - fillDays) : i - fillDays
@@ -91,21 +97,19 @@ function renderCalendar() {
 
       li.addEventListener('click', getDay)
 
+      // Handle todos in calendar
       const todosForDay = todos.filter((todo) => todo.date === dayString)
       span.innerHTML = todosForDay.length > 0 ? todosForDay.length : null
       span.className = 'todoBadge'
 
+      // Handle holidays in calendar
       calendar.holidays.forEach(function (day) {
         if (day.datum === dayString) {
           pElHoliday.innerText = day.helgdag
           pElHoliday.className = 'holiday'
         }
       })
-      // if (calendar.holidays.find((day) => day.datum === dayString)) {
-      //   pElHoliday.className = 'holiday'
-      // }
     } else {
-      // lägg till style class för tom dag
       li.className = 'emptyDay'
     }
 
@@ -117,7 +121,7 @@ function renderCalendar() {
 }
 
 function getDay(event) {
-  let content = event.target.querySelector('.dd').innerText
+  let content = event.currentTarget.querySelector('.dd').innerText
   calendar.selectedDay = content.toString().padStart(2, '0')
   console.log(calendar.selectedDay)
   renderTodos()
@@ -176,4 +180,10 @@ function dateSelectListener() {
       renderCalendar()
     })
   )
+}
+
+function renderWeekdays() {
+  const wdContainer = document.querySelector('#calendar-container ul')
+  let html = calendar.weekdays.map((weekday) => `<li>${weekday}</li>`).join('')
+  wdContainer.innerHTML = html
 }
