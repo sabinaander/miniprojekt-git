@@ -20,6 +20,9 @@
     <script defer src="/JS/calendar.js"></script>
     <script defer src="/JS/api.js"></script>
     <script defer src="/JS/footer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <title>Planner</title>
   </head>
 
@@ -27,9 +30,11 @@
     <div class="gridContainer">
       <header class="header" id="primaryHeader">
         <div>
-          <div id="clock"></div>
-          <div id="currentDate"></div>
           <h1 id="welcomeMessage"></h1>
+        </div>
+        <div class="clockAndDate">
+          <div id="currentDate"></div>
+          <div id="clock"></div>
         </div>
       </header>
       <div class="sideBar">

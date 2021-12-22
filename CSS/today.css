@@ -1,10 +1,20 @@
 /* Style for today.js by Jim */
 
-/* .header {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    
-} */
+#welcomeMessage {
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: 700;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.clockAndDate {
+    display: flex;
+    flex-direction: column;
+}
