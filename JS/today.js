@@ -48,7 +48,7 @@ function setWelcomeMessage() {
   const gridContainer = document.querySelector('.gridContainer')
   console.log('hour', hour)
   if (hour >= 4 && hour < 12) {
-    welcomeMessageElement.innerText = 'Good morning!'
+    welcomeMessageElement.innerText = 'God morgon!'
     if (month <= 2 || month === 12) {
       gridContainer.style.backgroundImage = "url('/media/winter-morning.jpg')"
     } else if (month >= 3 && month <= 5) {
@@ -59,7 +59,7 @@ function setWelcomeMessage() {
       gridContainer.style.backgroundImage = "url('/media/autumn-morning.jpg')"
     }
   } else if (hour >= 12 && hour < 17) {
-    welcomeMessageElement.innerText = 'Good afternoon!'
+    welcomeMessageElement.innerText = 'God dag!'
     if (month <= 2 || month === 12) {
       gridContainer.style.backgroundImage = "url('/media/winter-day.jpg')"
     } else if (month >= 3 && month <= 5) {
@@ -70,7 +70,7 @@ function setWelcomeMessage() {
       gridContainer.style.backgroundImage = "url('/media/autumn-day.jpg')"
     }
   } else if (hour >= 17 || (hour >= 0 && hour <= 4)) {
-    welcomeMessageElement.innerText = 'Good evening!'
+    welcomeMessageElement.innerText = 'Good kväll!'
     if (month <= 2 || month === 12) {
       gridContainer.style.backgroundImage = "url('/media/winter-evening.jpg')"
     } else if (month >= 3 && month <= 5) {
