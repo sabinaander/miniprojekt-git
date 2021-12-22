@@ -1,6 +1,6 @@
 // This is a JS file for the header section by Jim
 
-// Date assets
+// Time and date assets, as well as displaying date and weekday
 
 let date = new Date()
 let year = date.getFullYear()
@@ -8,13 +8,23 @@ let month = date.getMonth() + 1
 let day = date.getDate()
 let today = year + '-' + month + '-' + day
 
-// Time assets
+
 let time = new Date()
 let hour = time.getHours()
 let min = time.getMinutes()
 let sec = time.getSeconds()
 
-document.getElementById('currentDate').innerHTML = today
+document.getElementById('currentDate').innerHTML = time.toLocaleDateString(
+
+  'sv-se',
+  {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  }
+)
+
 // Clock
 setInterval(tellTime, 1000)
 function tellTime() {
@@ -31,7 +41,7 @@ function tellTime() {
   document.getElementById('clock').innerHTML = currentTime
 }
 
-// Dynamic welcome message, changes depending on time of day
+// Dynamic welcome message, changes depending on time of day and season of the year
 
 function setWelcomeMessage() {
   const welcomeMessageElement = document.getElementById('welcomeMessage')
