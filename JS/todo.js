@@ -25,7 +25,8 @@ function renderTodoForm(todo) {
      * @type {HTMLButtonElement} closeContainerBtn
      */
     let closeContainerBtn = document.createElement('BUTTON')
-    closeContainerBtn.innerHTML = 'Stäng ruta'
+    closeContainerBtn.classList.add('closeContainerBtn')
+    closeContainerBtn.innerHTML = '<i class="fas fa-window-close"></i>'
     closeContainerBtn.type = 'button'
     todoForm.appendChild(closeContainerBtn)
 
@@ -39,6 +40,7 @@ function renderTodoForm(todo) {
      * @type {HTMLInputElement} titleInput
      */
     let titleInput = document.createElement('INPUT')
+    titleInput.placeholder = 'Skriv titeln på din todo...'
     titleInput.classList.add('titleInput')
     titleInput.setAttribute('type', 'text')
     titleInput.setAttribute('required', 'required')
@@ -55,8 +57,9 @@ function renderTodoForm(todo) {
      * add description input to todoform
      * @type {HTMLInputElement} descriptionInput
      */
-    let descriptionInput = document.createElement('INPUT')
+    let descriptionInput = document.createElement('TEXTAREA')
     descriptionInput.classList.add('descriptionInput')
+    descriptionInput.placeholder = 'Beskriv din todo...'
     descriptionInput.setAttribute('type', 'text')
     descriptionInput.setAttribute('required', 'required')
     descriptionInput.setAttribute('name', 'description')
@@ -96,7 +99,7 @@ function renderTodoForm(todo) {
     if (todo) {
         /** add edit button text */
         submitTodoBtn.innerHTML = 'Uppdatera todo'
-
+        submitTodoBtn.classList.add('submitTodoBtn')
         /** onsubmit event, edit/update todo */
         todoForm.addEventListener('submit', (event) => {
             event.preventDefault()
@@ -108,7 +111,8 @@ function renderTodoForm(todo) {
          * @type {HTMLButtonElement} removeTodoBtn
         */
         let removeTodoBtn = document.createElement('BUTTON')
-        removeTodoBtn.innerHTML = 'Radera todo'
+        removeTodoBtn.classList.add('removeTodoBtn')
+        removeTodoBtn.innerHTML = '<i class="fas fa-trash-alt"></i>'
         todoForm.appendChild(removeTodoBtn)
 
         /** onclick event, remove todo */
@@ -123,6 +127,7 @@ function renderTodoForm(todo) {
     else {
         /** add create todo text */
         submitTodoBtn.innerHTML = 'Skapa todo'
+        submitTodoBtn.classList.add('submitTodoBtn')
 
         /** onsubmit event, run addTodo */
         todoForm.addEventListener('submit', (event) => {

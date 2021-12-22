@@ -70,13 +70,10 @@ body.showDailyView .calendar {
 .calendar {
   grid-area: m;
   background-color: rgba(59, 59, 59, 0.75);
-  /* display: grid; */
   padding: 1em;
   backdrop-filter: blur(2px);
 }
-/* .calendar {
-  grid-area: m;
-} */
+
 .calendar ul,
 .calendar ol {
   display: grid;
@@ -119,10 +116,6 @@ footer {
   font-size: 2rem;
 }
 
-/* Laptop L */
-@media screen and (min-width: 1440px) {
-}
-
 /* Laptop */
 @media screen and (min-width: 1024px) {
   body.showCalendarView .gridContainer,
@@ -159,8 +152,4 @@ footer {
   #footerContainer {
     display: none;
   }
-}
-
-/* Tablet */
-@media screen and (min-width: 768px) {
 }

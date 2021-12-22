@@ -7,6 +7,7 @@ let sideBar = document.querySelector('.sideBar')
  */
 let todoBtn = document.createElement('BUTTON')
 todoBtn.innerHTML = 'Lägg till todo'
+todoBtn.classList.add('todoBtn')
 todoBtn.type = 'button'
 sideBar.appendChild(todoBtn)
 

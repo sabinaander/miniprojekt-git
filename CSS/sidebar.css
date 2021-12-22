@@ -1,24 +1,42 @@
 .sideBar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 2rem;
 }
 
 #todosForDayContainer {
-  padding: 1rem;
-  width: 90%;
-  height: 100%;
-  text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 90%;
+    height: 100%;
+    text-align: center;
 }
 
 #todosForDayContainer ul {
-  color: antiquewhite;
+    margin-top: 1rem;
 }
 
 #todosForDayContainer li {
-  border-bottom: 3px solid rgba(0, 0, 0, 0.315);
-  padding-bottom: 1em;
-  margin-block: 1em;
-  background-color: white;
-  color: black;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.315);
+    padding-bottom: 1em;
+    margin-block: 2em;
+    color: white;
+}
+
+#todosForDayContainer h2{
+    margin-bottom: 1rem;
+}
+
+#listOfTodos button {
+    margin-left: 2rem;
+    background-color: transparent;
+    border-style: none;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#listOfTodos #text{
+    font-size: 3rem;
 }

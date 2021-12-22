@@ -12,17 +12,67 @@
   height: 4vh;
 }
 
-.descriptionInput {
-  height: 20vh;
-}
-
 #todoForm {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  width: 30vw;
+  width: 90vw;
+  background-color: #80808066;
+  padding: 4rem 1rem;
+  position: relative;
 }
 
 button {
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
+
+.submitTodoBtn,
+.todoBtn{
+border-style: none;
+background-color: rgba(0, 0, 0, 0.445);
+color: white;
+padding: 1rem;
+font-weight: bold;
+font-size: 1rem;
+}
+
+.closeContainerBtn{
+background-color: transparent;
+border-style: none;
+font-size: 2rem;
+color: white;
+position: absolute;
+top: 0.5rem;
+right: 0.5rem;
+}
+
+.removeTodoBtn{
+background-color: transparent;
+border-style: none;
+font-size: 2rem;
+color: white;
+}
+
+
+
+.titleInput{
+    font-family: inherit;
+    padding: 1rem;
+}
+
+.descriptionInput{
+    font-family: inherit;
+    height: 20vh;
+    padding: 1rem;
+    resize: none;
+}
+
+/* Laptop */
+@media screen and (min-width: 1024px){
+    #todoForm {
+        width: 40vw;
+        padding: 4rem 4rem 1rem;
+      }  
+}
+
