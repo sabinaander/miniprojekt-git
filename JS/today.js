@@ -14,7 +14,7 @@ let hour = time.getHours()
 let min = time.getMinutes()
 let sec = time.getSeconds()
 
-document.getElementById('currentDate').innerHTML = time.toLocaleDateString(
+const todaysDate = document.getElementById('currentDate').innerHTML = time.toLocaleDateString(
 
   'sv-se',
   {
@@ -36,9 +36,9 @@ function tellTime() {
   min = min < 10 ? '0' + min : min
   sec = sec < 10 ? '0' + sec : sec
 
-  let currentTime = hour + ':' + min + ':' + sec
+  let timeString = hour + ':' + min + ':' + sec
 
-  document.getElementById('clock').innerHTML = currentTime
+  const currentTime = document.getElementById('clock').innerHTML = timeString
 }
 
 // Dynamic welcome message, changes depending on time of day and season of the year
