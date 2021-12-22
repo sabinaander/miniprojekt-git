@@ -25,7 +25,7 @@ function renderTodoForm(todo) {
      * @type {HTMLButtonElement} closeContainerBtn
      */
     let closeContainerBtn = document.createElement('BUTTON')
-    closeContainerBtn.innerHTML = 'CLOSE'
+    closeContainerBtn.innerHTML = 'Stäng ruta'
     closeContainerBtn.type = 'button'
     todoForm.appendChild(closeContainerBtn)
 
@@ -95,7 +95,7 @@ function renderTodoForm(todo) {
     /** if a todoitem was passed to rendertodoform */
     if (todo) {
         /** add edit button text */
-        submitTodoBtn.innerHTML = 'UPDATE TODO'
+        submitTodoBtn.innerHTML = 'Uppdatera todo'
 
         /** onsubmit event, edit/update todo */
         todoForm.addEventListener('submit', (event) => {
@@ -108,7 +108,7 @@ function renderTodoForm(todo) {
          * @type {HTMLButtonElement} removeTodoBtn
         */
         let removeTodoBtn = document.createElement('BUTTON')
-        removeTodoBtn.innerHTML = 'REMOVE TODO'
+        removeTodoBtn.innerHTML = 'Radera todo'
         todoForm.appendChild(removeTodoBtn)
 
         /** onclick event, remove todo */
@@ -122,7 +122,7 @@ function renderTodoForm(todo) {
 
     else {
         /** add create todo text */
-        submitTodoBtn.innerHTML = 'CREATE TODO'
+        submitTodoBtn.innerHTML = 'Skapa todo'
 
         /** onsubmit event, run addTodo */
         todoForm.addEventListener('submit', (event) => {

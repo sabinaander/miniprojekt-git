@@ -6,7 +6,7 @@ let sideBar = document.querySelector('.sideBar')
  * @type {HTMLButtonElement} todoBtn
  */
 let todoBtn = document.createElement('BUTTON')
-todoBtn.innerHTML = 'ADD TO-DO'
+todoBtn.innerHTML = 'Lägg till todo'
 todoBtn.type = 'button'
 sideBar.appendChild(todoBtn)
 
@@ -95,7 +95,7 @@ function renderTodos() {
         */
         const penButton = document.createElement('BUTTON')
         penButton.classList.add('fa-solid', 'fa-pen')
-        penButton.title = 'click here to view, edit or remove your todo'
+        penButton.title = 'Klicka här för att ändra eller radera en todo.'
         todoTitle.appendChild(penButton)
 
         /** adds click event to edit button that renders the todoform */
