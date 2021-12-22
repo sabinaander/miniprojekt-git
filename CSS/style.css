@@ -63,10 +63,21 @@ body.showDailyView .calendar {
   display: none;
 }
 
-
 .calendar {
   grid-area: m;
-  background-color: rgb(133, 42, 42);
+  background-color: rgba(59, 59, 59, 0.75);
+  /* display: grid; */
+  padding: 1em;
+  backdrop-filter: blur(2px);
+}
+/* .calendar {
+  grid-area: m;
+} */
+.calendar ul,
+.calendar ol {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5em;
 }
 
 .sideBar {
@@ -105,11 +116,11 @@ footer {
 }
 
 /* Laptop L */
-@media screen and (min-width: 1440px) {}
+@media screen and (min-width: 1440px) {
+}
 
 /* Laptop */
 @media screen and (min-width: 1024px) {
-
   body.showCalendarView .gridContainer,
   body.showDailyView .gridContainer {
     grid-template-columns: repeat(10, 1fr);
@@ -133,6 +144,7 @@ footer {
   body.showCalendarView .calendar,
   body.showDailyView .calendar {
     display: grid;
+    grid-template-rows: min-content;
   }
 
   body.showCalendarView .sideBar,
@@ -140,22 +152,11 @@ footer {
     display: flex;
   }
 
-
-  .calendar {
-    grid-area: m;
-    background-color: rgba(59, 59, 59, 0.75);
-    display: grid;
-    padding: 1em;
-    backdrop-filter: blur(2px);
-  }
-
-  .calendar ul,
-  .calendar ol {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 1em;
+  #footerContainer {
+    display: none;
   }
 }
 
 /* Tablet */
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+}

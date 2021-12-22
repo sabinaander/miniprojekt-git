@@ -17,9 +17,8 @@ function getTodosFromStorage() {
  * Starts the program
  */
 function main() {
-  renderDateSelectors()
-  renderCalendar()
-  dateSelectListener()
+  getTodosFromStorage()
+  initCalendar()
   getHolidays()
   renderSideBarContainer()
   renderFooter()
